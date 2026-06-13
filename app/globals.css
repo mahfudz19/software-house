@@ -1,22 +1,308 @@
 @import "tailwindcss";
 
 :root {
+  /* ===== PRIMARY COLORS (Warna Utama) ===== */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
+  --primary-950: #172554;
+
+  /* ===== SECONDARY COLORS (Warna Sekunder) ===== */
+  --secondary-50: #f8fafc;
+  --secondary-100: #f1f5f9;
+  --secondary-200: #e2e8f0;
+  --secondary-300: #cbd5e1;
+  --secondary-400: #94a3b8;
+  --secondary-500: #64748b;
+  --secondary-600: #475569;
+  --secondary-700: #334155;
+  --secondary-800: #1e293b;
+  --secondary-900: #0f172a;
+  --secondary-950: #020617;
+
+  /* ===== SEMANTIC COLORS ===== */
+  --success-50: #f0fdf4;
+  --success-500: #22c55e;
+  --success-900: #14532d;
+
+  --warning-50: #fffbeb;
+  --warning-500: #f59e0b;
+  --warning-900: #78350f;
+
+  --error-50: #fef2f2;
+  --error-500: #ef4444;
+  --error-900: #7f1d1d;
+
+  --info-50: #eff6ff;
+  --info-500: #3b82f6;
+  --info-900: #1e3a8a;
+
+  /* ===== BACKGROUND & SURFACE ===== */
   --background: #ffffff;
-  --foreground: #171717;
+  --surface: #f8fafc;
+  --surface-elevated: #ffffff;
+  --muted: #f1f5f9;
+
+  /* ===== FOREGROUND / TEXT ===== */
+  --foreground: #0f172a;
+  --foreground-muted: #64748b;
+  --foreground-subtle: #94a3b8;
+
+  /* ===== BORDER ===== */
+  --border: #e2e8f0;
+  --border-muted: #f1f5f9;
+}
+
+/* Dark mode via prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    /* ===== PRIMARY COLORS (Dark) ===== */
+    --primary-50: #172554;
+    --primary-100: #1e3a8a;
+    --primary-200: #1e40af;
+    --primary-300: #1d4ed8;
+    --primary-400: #2563eb;
+    --primary-500: #3b82f6;
+    --primary-600: #60a5fa;
+    --primary-700: #93c5fd;
+    --primary-800: #bfdbfe;
+    --primary-900: #dbeafe;
+    --primary-950: #eff6ff;
+
+    /* ===== SECONDARY COLORS (Dark) ===== */
+    --secondary-50: #020617;
+    --secondary-100: #0f172a;
+    --secondary-200: #1e293b;
+    --secondary-300: #334155;
+    --secondary-400: #475569;
+    --secondary-500: #64748b;
+    --secondary-600: #94a3b8;
+    --secondary-700: #cbd5e1;
+    --secondary-800: #e2e8f0;
+    --secondary-900: #f1f5f9;
+    --secondary-950: #f8fafc;
+
+    /* ===== SEMANTIC COLORS (Dark) ===== */
+    --success-50: #14532d;
+    --success-500: #22c55e;
+    --success-900: #f0fdf4;
+
+    --warning-50: #78350f;
+    --warning-500: #f59e0b;
+    --warning-900: #fffbeb;
+
+    --error-50: #7f1d1d;
+    --error-500: #ef4444;
+    --error-900: #fef2f2;
+
+    --info-50: #1e3a8a;
+    --info-500: #3b82f6;
+    --info-900: #eff6ff;
+
+    /* ===== BACKGROUND & SURFACE (Dark) ===== */
+    --background: #0a0a0a;
+    --surface: #171717;
+    --surface-elevated: #262626;
+    --muted: #262626;
+
+    /* ===== FOREGROUND / TEXT (Dark) ===== */
+    --foreground: #f8fafc;
+    --foreground-muted: #94a3b8;
+    --foreground-subtle: #64748b;
+
+    /* ===== BORDER (Dark) ===== */
+    --border: #262626;
+    --border-muted: #171717;
+  }
+}
+
+/* Dark mode via .dark class (manual toggle) */
+.dark {
+  /* ===== PRIMARY COLORS (Dark) ===== */
+  --primary-50: #172554;
+  --primary-100: #1e3a8a;
+  --primary-200: #1e40af;
+  --primary-300: #1d4ed8;
+  --primary-400: #2563eb;
+  --primary-500: #3b82f6;
+  --primary-600: #60a5fa;
+  --primary-700: #93c5fd;
+  --primary-800: #bfdbfe;
+  --primary-900: #dbeafe;
+  --primary-950: #eff6ff;
+
+  /* ===== SECONDARY COLORS (Dark) ===== */
+  --secondary-50: #020617;
+  --secondary-100: #0f172a;
+  --secondary-200: #1e293b;
+  --secondary-300: #334155;
+  --secondary-400: #475569;
+  --secondary-500: #64748b;
+  --secondary-600: #94a3b8;
+  --secondary-700: #cbd5e1;
+  --secondary-800: #e2e8f0;
+  --secondary-900: #f1f5f9;
+  --secondary-950: #f8fafc;
+
+  /* ===== SEMANTIC COLORS (Dark) ===== */
+  --success-50: #14532d;
+  --success-500: #22c55e;
+  --success-900: #f0fdf4;
+
+  --warning-50: #78350f;
+  --warning-500: #f59e0b;
+  --warning-900: #fffbeb;
+
+  --error-50: #7f1d1d;
+  --error-500: #ef4444;
+  --error-900: #fef2f2;
+
+  --info-50: #1e3a8a;
+  --info-500: #3b82f6;
+  --info-900: #eff6ff;
+
+  /* ===== BACKGROUND & SURFACE (Dark) ===== */
+  --background: #0a0a0a;
+  --surface: #171717;
+  --surface-elevated: #262626;
+  --muted: #262626;
+
+  /* ===== FOREGROUND / TEXT (Dark) ===== */
+  --foreground: #f8fafc;
+  --foreground-muted: #94a3b8;
+  --foreground-subtle: #64748b;
+
+  /* ===== BORDER (Dark) ===== */
+  --border: #262626;
+  --border-muted: #171717;
+}
+
+/* Light mode override via .light class */
+.light {
+  /* ===== PRIMARY COLORS (Light) ===== */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
+  --primary-950: #172554;
+
+  /* ===== SECONDARY COLORS (Light) ===== */
+  --secondary-50: #f8fafc;
+  --secondary-100: #f1f5f9;
+  --secondary-200: #e2e8f0;
+  --secondary-300: #cbd5e1;
+  --secondary-400: #94a3b8;
+  --secondary-500: #64748b;
+  --secondary-600: #475569;
+  --secondary-700: #334155;
+  --secondary-800: #1e293b;
+  --secondary-900: #0f172a;
+  --secondary-950: #020617;
+
+  /* ===== SEMANTIC COLORS (Light) ===== */
+  --success-50: #f0fdf4;
+  --success-500: #22c55e;
+  --success-900: #14532d;
+
+  --warning-50: #fffbeb;
+  --warning-500: #f59e0b;
+  --warning-900: #78350f;
+
+  --error-50: #fef2f2;
+  --error-500: #ef4444;
+  --error-900: #7f1d1d;
+
+  --info-50: #eff6ff;
+  --info-500: #3b82f6;
+  --info-900: #1e3a8a;
+
+  /* ===== BACKGROUND & SURFACE (Light) ===== */
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --surface-elevated: #ffffff;
+  --muted: #f1f5f9;
+
+  /* ===== FOREGROUND / TEXT (Light) ===== */
+  --foreground: #0f172a;
+  --foreground-muted: #64748b;
+  --foreground-subtle: #94a3b8;
+
+  /* ===== BORDER (Light) ===== */
+  --border: #e2e8f0;
+  --border-muted: #f1f5f9;
 }
 
 @theme inline {
+  /* ===== COLOR PALETTE ===== */
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
+
+  --color-secondary-50: var(--secondary-50);
+  --color-secondary-100: var(--secondary-100);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-300: var(--secondary-300);
+  --color-secondary-400: var(--secondary-400);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-600: var(--secondary-600);
+  --color-secondary-700: var(--secondary-700);
+  --color-secondary-800: var(--secondary-800);
+  --color-secondary-900: var(--secondary-900);
+  --color-secondary-950: var(--secondary-950);
+
+  --color-success-50: var(--success-50);
+  --color-success-500: var(--success-500);
+  --color-success-900: var(--success-900);
+
+  --color-warning-50: var(--warning-50);
+  --color-warning-500: var(--warning-500);
+  --color-warning-900: var(--warning-900);
+
+  --color-error-50: var(--error-50);
+  --color-error-500: var(--error-500);
+  --color-error-900: var(--error-900);
+
+  --color-info-50: var(--info-50);
+  --color-info-500: var(--info-500);
+  --color-info-900: var(--info-900);
+
+  /* ===== SEMANTIC COLORS ===== */
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-muted: var(--muted);
+
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+
+  --color-border: var(--border);
+  --color-border-muted: var(--border-muted);
+
+  /* ===== FONTS ===== */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
